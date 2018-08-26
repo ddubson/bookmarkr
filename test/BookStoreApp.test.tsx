@@ -1,10 +1,15 @@
 import * as React from "react";
-import { mount } from "enzyme";
 import BookStoreApp from "../src/BookStoreApp";
+import {createRender} from "@material-ui/core/test-utils";
 
 describe("BookStoreApp", () => {
-  it("should render Hello World", () => {
-    const wrapper = mount(<BookStoreApp/>);
-    expect(wrapper.find("[id='test']").text()).toContain("Hello World")
+  let wrapper: Cheerio;
+
+  beforeEach(() => {
+    wrapper = createRender()(<BookStoreApp />);
+  });
+
+  it("should render 'Book Store' title", () => {
+    expect(wrapper.find("[data-test='test']").text()).toContain("Book Store")
   });
 });

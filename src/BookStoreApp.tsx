@@ -15,6 +15,7 @@ const BookStoreApp = (props: BookStoreAppProps) => (
           <Typography
             variant="title"
             color="inherit"
+            data-test="test"
             noWrap
             className={props.classes.toolbarTitle}>
             Book Store

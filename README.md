@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ddubson/book-store-app.svg?branch=master)](https://travis-ci.org/ddubson/book-store-app)
+
 # Book Store App
 
 ## Stack
