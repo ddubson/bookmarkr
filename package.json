@@ -1,0 +1,19 @@
+{
+  "name": "book-store-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dmitriy Dubson <d.dubson@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "devDependencies": {
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "@types/react": "^16.4.12",
+    "@types/react-dom": "^16.0.7",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
