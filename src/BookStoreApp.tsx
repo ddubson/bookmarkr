@@ -3,6 +3,6 @@ import {PureComponent} from "react";
 
 export default class BookStoreApp extends PureComponent {
   render() {
-    return <div>Hello World</div>
+    return <div id="test">Hello World</div>
   }
 }
