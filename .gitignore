@@ -1,5 +1,5 @@
 .idea/
 *.iml
 .cache
-/dist/
+*/dist/
 node_modules/
