@@ -4,5 +4,8 @@ node_js:
 cache:
   yarn: true
   directories:
-  - "node_modules"
-script: yarn test
+  - "web/node_modules"
+script:
+  - cd $TRAVIS_BUILD_DIR/web
+  - yarn install
+  - yarn test
