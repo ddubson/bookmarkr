@@ -1,5 +1,5 @@
 import * as express from "express"
-import router from "./router";
+import router from "./Router";
 
 const app = express();
 const port = process.env.PORT || "8080";

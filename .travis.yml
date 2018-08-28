@@ -8,6 +8,7 @@ cache:
 script:
   - cd $TRAVIS_BUILD_DIR/api
   - yarn install
+  - yarn test
   - yarn build
   - cd $TRAVIS_BUILD_DIR/web
   - yarn install

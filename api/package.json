@@ -5,14 +5,33 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "serve": "tsc -w | nodemon --watch dist"
+    "serve": "tsc -w | nodemon --watch dist",
+    "test": "jest"
   },
   "dependencies": {
     "express": "^4.16.3"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.1",
+    "jest": "^23.5.0",
+    "ts-jest": "^23.1.4",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(js?|ts?)$",
+    "testPathIgnorePatterns": [
+      "/dist/"
+    ]
   }
 }
