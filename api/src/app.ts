@@ -1,12 +1,10 @@
-import express from "express"
+import * as express from "express"
+import router from "./router";
 
 const app = express();
-
 const port = process.env.PORT || "8080";
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the Book Store");
-});
+app.use("/api", router);
 
 app.listen(port, () => {
   console.log(`Running on port ${port}`)
