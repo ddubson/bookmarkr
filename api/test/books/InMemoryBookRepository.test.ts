@@ -14,4 +14,18 @@ describe("InMemoryBookRepository", () => {
       expect(bookRepository.fetchAll().length).toBeGreaterThan(0);
     });
   });
+
+  describe("findById", () => {
+    describe("when given a valid ID", () => {
+      const validId: number = 1;
+
+      it("should retrieve the book by its ID", () => {
+        expect(bookRepository.findById(validId)).toEqual({
+          id: validId,
+          author: "Stephen King",
+          title: "IT"
+        })
+      });
+    });
+  });
 });

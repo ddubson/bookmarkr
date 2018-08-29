@@ -22,6 +22,10 @@ class InMemoryBookRepository implements Repository<Book> {
     return books;
   }
 
+  findById(id: number): Book {
+    return books.find(b => b.id == id);
+  }
+
   static createRepository() {
     return new InMemoryBookRepository();
   }

@@ -4,3 +4,6 @@
 */dist/
 node_modules/
 **/*.log
+
+// Project is strictly ts, ignore js
+**/*.js
