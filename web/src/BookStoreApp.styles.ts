@@ -6,11 +6,10 @@ export const styles = (theme: Theme) => createStyles({
       backgroundColor: theme.palette.common.white,
     },
   },
-  appBar: {
-    position: "relative"
+  "appBar": {
+    position: "relative",
   },
-  toolbarTitle: {
-    flex: 1
-  }
+  "toolbarTitle": {
+    flex: 1,
+  },
 });
-
