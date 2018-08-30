@@ -1,5 +1,5 @@
 interface Repository<T> {
-  fetchAll(): Array<T>;
+  fetchAll(): T[];
 
   findById(id: number): T;
 }

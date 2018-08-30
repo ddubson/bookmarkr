@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "serve": "tsc -w | nodemon --watch dist",
-    "test": "jest"
+    "test": "tslint 'src/**/*.ts' && jest",
+    "lint": "tslint 'src/**/*.ts'"
   },
   "dependencies": {
     "express": "^4.16.3"
@@ -17,6 +18,7 @@
     "jest": "^23.5.0",
     "ts-jest": "^23.1.4",
     "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   },
   "jest": {

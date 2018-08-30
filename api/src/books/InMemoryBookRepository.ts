@@ -1,33 +1,30 @@
 import Book from "./Book";
 import Repository from "./Repository";
 
-const books: Array<Book> = [
+const books: Book[] = [
   {
-    id: 1,
     author: "Stephen King",
-    title: "IT"
+    id: 1,
+    title: "IT",
   },
   {
-    id: 2,
     author: "Stephen King",
-    title: "The Stand"
-  }
+    id: 2,
+    title: "The Stand",
+  },
 ];
 
 class InMemoryBookRepository implements Repository<Book> {
-  private BookRepository() {
-  };
+  public static createRepository() {
+    return new InMemoryBookRepository();
+  }
 
-  fetchAll(): Array<Book> {
+  public fetchAll(): Book[] {
     return books;
   }
 
-  findById(id: number): Book {
-    return books.find(b => b.id == id);
-  }
-
-  static createRepository() {
-    return new InMemoryBookRepository();
+  public findById(id: number): Book {
+    return books.find((b) => b.id === id);
   }
 }
 

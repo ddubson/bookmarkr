@@ -8,7 +8,7 @@ router.route("/books").get((req: Request, res: Response) => {
 });
 
 router.route("/books/:id").get((req: Request, res: Response) => {
-  res.json(bookRepository.findById(req.params.id))
+  res.json(bookRepository.findById(req.params.id));
 });
 
 export default router;

@@ -23,7 +23,7 @@ describe("InMemoryBookRepository", () => {
         expect(bookRepository.findById(validId)).toEqual({
           id: validId,
           author: "Stephen King",
-          title: "IT"
+          title: "IT",
         })
       });
     });

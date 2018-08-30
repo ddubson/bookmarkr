@@ -2,6 +2,20 @@
 
 # Book Store App
 
+---
+# API
+
+## Stack
+
+- Typescript
+
+### Test Tools
+
+- Jest
+
+---
+# Web (Client)
+
 ## Stack
 
 - Parcel Bundler

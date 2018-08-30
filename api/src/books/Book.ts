@@ -1,7 +1,7 @@
 class Book {
-  id: number;
-  author: String;
-  title: String;
+  public id: number;
+  public author: string;
+  public title: string;
 }
 
 export default Book;
