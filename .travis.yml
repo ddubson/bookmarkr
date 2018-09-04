@@ -5,11 +5,15 @@ cache:
   yarn: true
   directories:
   - "web/node_modules"
+install:
+  - npm i -g codecov
 script:
   - cd $TRAVIS_BUILD_DIR/api
   - yarn install
-  - yarn test
+  - yarn test --collectCoverage
+  - codecov
   - yarn build
   - cd $TRAVIS_BUILD_DIR/web
   - yarn install
-  - yarn test
+  - yarn test --collectCoverage
+  - codecov
