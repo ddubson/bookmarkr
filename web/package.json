@@ -5,6 +5,7 @@
   "author": "Dmitriy Dubson <d.dubson@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npm i -g parcel",
     "start": "parcel src/index.html",
     "test": "tslint 'src/**/*.ts' && jest",
     "lint": "tslint 'src/**/*.ts'"

@@ -5,6 +5,7 @@ cache:
   yarn: true
   directories:
   - "web/node_modules"
+  - "api/node_modules"
 install:
   - npm i -g codecov
 script:
