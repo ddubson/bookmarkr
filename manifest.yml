@@ -2,4 +2,5 @@
 applications:
 - name: book-store-app-web
   path: web/
+  command: yarn add --dev serve parcel && yarn build && yarn start:dev
   buildpack: https://github.com/cloudfoundry/nodejs-buildpack.git
