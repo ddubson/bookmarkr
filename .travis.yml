@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-  - "10"
+  - '10'
 cache:
   yarn: true
   directories:
-  - "web/node_modules"
-  - "api/node_modules"
+  - web/node_modules
+  - api/node_modules
 install:
   - npm i -g codecov
 script:
@@ -18,3 +18,12 @@ script:
   - yarn install
   - yarn test --collectCoverage
   - codecov
+deploy:
+  provider: cloudfoundry
+  username:
+    secure: ixrJoJ5DEbF/UGrzQAnwB1pnTbV2QU9kSQ+X/O0NEqW1WWDt2jqG0VIH08B3ff/oYzURh6Q5gjufkU5XpqSMTSJfNG2T1h7WvICy88MP8H1e1T99Vxrc/1LBBDMLlozomNpAwKuFeSqFXb3dlyl4bql810AEhvI2bSpE2sfAtVBKx1ilILW5d/79ofo2eP6Qu22Kez7mi+dlye4FxQGAJZeRTf3iJlzidSZ7fzgUUfK8Cq3piJkiAtmKQTyrS7QF4S+QtzqIWIrP2qDS0pNhNTeJMGJkY0/0ElmPhtEEjkeIFILIavxi6cd/JHO3msolIg+/EeYGCQ6nV29vL5mJAVl6hqR4Q61R3cXBXQ8w0jqQkrAtV2+oXw5W4K1UwIw7ga30RTrdoEQ7Dk/sQKbiJOwBVchEZb/mkdIxcL9d+gsNb70evS9HMQG4lLBb5XRrh7MebkQ1iEitLU1nGSC63r6XwfJGaLG7W1569Xr+O7/DXG+xofxRJkZdId8ckY5z+xS4SeJdnASCVknK7a2/HipYfY0hR1itINADcOHYZTkQJ5RNSCzBkER+XbGK5nXeDvxxvbtS5J6WnPIorItWPKAQmujPh6iWBYk3A3jqCWoAMKLRjJezGw6MJCW3/0giCTZK46NMSeSSrPHz7pncfgPtQ1poWZoUukLUv/mbEbY=
+  password:
+    secure: jk3cuXOQ4YCMIwCkxrzRVfapDtc2Kds3QWM1nXJQ3giXy1DZnzIrmMRQNabpL9v+Y3xd8nFOIi/7sSqfeLHBF7x7KiD58NhpsGl+9h7juHfkYmWAOynfJV9813Jofyf6asusM7VuDlI79bszlcQPwYVsXQsSL4FHsbc+W5/L0Ynz4EnJ3+NVBc0udKRgBeooJl9sVsAIHyvycGSTjuMsVBOC8qF2sOjIjGPV2WvnUxRMqq7wi2rBwmyxATOxCoI2RmC1a0kegjo5nOtoH8Lbh/6neWc+mZjmzCoZ2Z2X3ED7akutOm6uSdhsnsY/WuSiLsLqc8BV0Q4j/wZrZ+4mfD6vTF9JHu0v6kFbwnKNlcOzh3LjW25JmFszc0aOboDrBlP8pBrX/yLP3zn1TP8oPmGnAHUcimvh8ILlSpJ8HMJCv/I1aQoX5qYRvobuMu0VdWX2afzLDvQB+12a7beaypo+Td/3/TssVM63QZabVJ/LzZbOl2y0QtnsQng4GgKumTUBdMMORgt3UKJA2GAdfXt1JUw+rwSZvEuKvx1hzsI4KLHk4KD92eHhKraq29A1oMQUNu/hZ98YDvA+bq1SnfEBMRQcKt4cAfW/T+kdGwcLxx979HvNOgeSKKeZopSiqUwaLznUNGa2d/Wn05znqG2WOZzy+6QZrSrrVD3sC9w=
+  api: https://api.run.pcfbeta.io
+  organization: pivot-ddubson
+  space: development
