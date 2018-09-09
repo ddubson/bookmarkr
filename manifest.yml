@@ -4,3 +4,8 @@ applications:
   path: web/
   buildpacks:
     - https://github.com/cloudfoundry/staticfile-buildpack.git
+- name: book-store-app-api
+  path: api/dist
+  command: node App.js
+  buildpacks:
+    - https://github.com/cloudfoundry/nodejs-buildpack.git

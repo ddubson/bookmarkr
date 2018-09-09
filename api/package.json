@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "dist/app.js",
+  "main": "dist/App.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
