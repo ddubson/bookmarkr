@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "start": "./node_modules/.bin/parcel src/index.html",
-    "start:dev": "./node_modules/.bin/serve -p 8080 -s dist",
     "build": "./node_modules/.bin/parcel build src/index.html",
     "test": "tslint 'src/**/*.ts' && jest",
     "lint": "tslint 'src/**/*.ts'"

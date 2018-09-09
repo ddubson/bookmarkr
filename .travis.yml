@@ -18,6 +18,7 @@ script:
   - yarn install
   - yarn test --collectCoverage
   - codecov
+  - yarn build
   - cd $TRAVIS_BUILD_DIR
 deploy:
   provider: cloudfoundry
