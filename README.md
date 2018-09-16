@@ -8,11 +8,11 @@
 
 ## Stack
 
-- Typescript
+- Typescript (transpiled to `ES5`)
 
 ### Test Tools
 
-- Jest
+- Jest (using `ts-jest` as bridge from `typescript` to `ES5`)
 
 ---
 # Web (Client)
@@ -20,16 +20,22 @@
 ## Stack
 
 - Parcel Bundler
-- React
+- React 16
 - Typescript
 
 ### Test Tools
 
-- Jest
+- Jest (using `ts-jest` as bridge from `typescript` to `ES5`)
 - Enzyme
 
 ---
 # Continuous Integration / Deployment
 
-- PCF (Pivotal Cloud Foundry)
-- Deploy on every commit to master (given all tests are green!)
+## Integration
+
+Travis CI runs all tests of each project and builds a set of artifacts.
+
+## Deployment
+
+Deploy on every commit to master (given all tests are green!) to
+PCF (Pivotal Cloud Foundry)
