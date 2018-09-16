@@ -26,6 +26,8 @@ deploy:
   organization: pivot-ddubson
   space: development
   manifest: .
+  on:
+    branch: master
   username:
     secure: ixrJoJ5DEbF/UGrzQAnwB1pnTbV2QU9kSQ+X/O0NEqW1WWDt2jqG0VIH08B3ff/oYzURh6Q5gjufkU5XpqSMTSJfNG2T1h7WvICy88MP8H1e1T99Vxrc/1LBBDMLlozomNpAwKuFeSqFXb3dlyl4bql810AEhvI2bSpE2sfAtVBKx1ilILW5d/79ofo2eP6Qu22Kez7mi+dlye4FxQGAJZeRTf3iJlzidSZ7fzgUUfK8Cq3piJkiAtmKQTyrS7QF4S+QtzqIWIrP2qDS0pNhNTeJMGJkY0/0ElmPhtEEjkeIFILIavxi6cd/JHO3msolIg+/EeYGCQ6nV29vL5mJAVl6hqR4Q61R3cXBXQ8w0jqQkrAtV2+oXw5W4K1UwIw7ga30RTrdoEQ7Dk/sQKbiJOwBVchEZb/mkdIxcL9d+gsNb70evS9HMQG4lLBb5XRrh7MebkQ1iEitLU1nGSC63r6XwfJGaLG7W1569Xr+O7/DXG+xofxRJkZdId8ckY5z+xS4SeJdnASCVknK7a2/HipYfY0hR1itINADcOHYZTkQJ5RNSCzBkER+XbGK5nXeDvxxvbtS5J6WnPIorItWPKAQmujPh6iWBYk3A3jqCWoAMKLRjJezGw6MJCW3/0giCTZK46NMSeSSrPHz7pncfgPtQ1poWZoUukLUv/mbEbY=
   password:

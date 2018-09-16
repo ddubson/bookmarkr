@@ -27,3 +27,9 @@
 
 - Jest
 - Enzyme
+
+---
+# Continuous Integration / Deployment
+
+- PCF (Pivotal Cloud Foundry)
+- Deploy on every commit to master (given all tests are green!)
