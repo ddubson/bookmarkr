@@ -3,39 +3,54 @@
 
 # Book Store App
 
----
-# API
+## Running Locally (MacOS / *Nix)
 
-## Stack
+```bash
+cd web/
+yarn
+yarn start (port 1234)
+
+cd api/
+yarn
+yarn serve (port 8080)
+```
+
+---
+
+## API
+
+### Stack
 
 - Typescript (transpiled to `ES5`)
 
-### Test Tools
+#### Test Tools
 
 - Jest (using `ts-jest` as bridge from `typescript` to `ES5`)
 
 ---
-# Web (Client)
 
-## Stack
+## Web (Client)
+
+### Stack
 
 - Parcel Bundler
 - React 16
 - Typescript
 
-### Test Tools
+#### Test Tools
 
 - Jest (using `ts-jest` as bridge from `typescript` to `ES5`)
 - Enzyme
 
 ---
-# Continuous Integration / Deployment
 
-## Integration
+## Continuous Integration / Deployment
+
+### Integration
 
 Travis CI runs all tests of each project and builds a set of artifacts.
 
-## Deployment
+### Deployment
 
 Deploy on every commit to master (given all tests are green!) to
 PCF (Pivotal Cloud Foundry)

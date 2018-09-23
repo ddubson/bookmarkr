@@ -5,8 +5,8 @@ import {MuiThemeProvider} from "@material-ui/core";
 import {muiTheme} from "./BookStoreApp.theme";
 
 ReactDOM.render(
-  <MuiThemeProvider theme={muiTheme}>
-    <BookStoreApp />
-  </MuiThemeProvider>,
-  document.getElementById("root")
+    <MuiThemeProvider theme={muiTheme}>
+        <BookStoreApp />
+    </MuiThemeProvider>,
+    document.getElementById("root")
 );

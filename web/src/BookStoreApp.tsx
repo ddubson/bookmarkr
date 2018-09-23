@@ -8,7 +8,7 @@ interface BookStoreAppProps extends WithStyles<typeof styles> {
 
 const BookStoreApp = (props: BookStoreAppProps) => (
     <React.Fragment>
-        <CssBaseline/>
+        <CssBaseline />
         <Grid container>
             <AppBar position="static"
                     className={props.classes.appBar}>
@@ -25,7 +25,7 @@ const BookStoreApp = (props: BookStoreAppProps) => (
             </AppBar>
         </Grid>
         <Grid>
-            <ProductCard/>
+            <ProductCard />
         </Grid>
     </React.Fragment>
 );
