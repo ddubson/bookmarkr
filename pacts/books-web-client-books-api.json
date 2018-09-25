@@ -1,0 +1,46 @@
+{
+  "consumer": {
+    "name": "books-web-client"
+  },
+  "provider": {
+    "name": "books-api"
+  },
+  "interactions": [
+    {
+      "description": "a request to fetch all books",
+      "request": {
+        "method": "GET",
+        "path": "/api/books"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "id": 1,
+            "author": "Stephen King",
+            "title": "The Stand"
+          }
+        ],
+        "matchingRules": {
+          "$.body[0].id": {
+            "match": "type"
+          },
+          "$.body[0].author": {
+            "match": "type"
+          },
+          "$.body[0].title": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

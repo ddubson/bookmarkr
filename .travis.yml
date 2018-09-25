@@ -6,6 +6,9 @@ cache:
   directories:
   - web/node_modules
   - api/node_modules
+branches:
+  only:
+  - master
 install:
 - npm i -g codecov
 script:
