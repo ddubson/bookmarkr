@@ -20,6 +20,7 @@ script:
 - cd $TRAVIS_BUILD_DIR/web
 - yarn install
 - yarn test --collectCoverage
+- yarn test:pact
 - codecov
 - yarn build
 - cd $TRAVIS_BUILD_DIR
