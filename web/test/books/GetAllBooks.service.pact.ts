@@ -1,5 +1,5 @@
 import {getAllBooks} from "../../src/books/GetAllBooks.service";
-import {somethingLike} from "@pact-foundation/pact/dsl/matchers";
+import {eachLike, like, somethingLike} from "@pact-foundation/pact/dsl/matchers";
 
 describe('The API', () => {​
     describe("fetch all books", () => {
@@ -13,15 +13,15 @@ describe('The API', () => {​
           willRespondWith: {
             status: 200,
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json; charset=utf-8'
             },
-            body: [
+            body: eachLike(
               {
                 id: somethingLike(1),
                 author: somethingLike("Stephen King"),
                 title: somethingLike("The Stand")
               }
-            ]
+            )
           }
         };
 
