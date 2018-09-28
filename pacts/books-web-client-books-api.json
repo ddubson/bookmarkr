@@ -15,7 +15,7 @@
       "response": {
         "status": 200,
         "headers": {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json; charset=utf-8"
         },
         "body": [
           {
@@ -25,13 +25,19 @@
           }
         ],
         "matchingRules": {
-          "$.body[0].id": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
             "match": "type"
           },
-          "$.body[0].author": {
+          "$.body[*].id": {
             "match": "type"
           },
-          "$.body[0].title": {
+          "$.body[*].author": {
+            "match": "type"
+          },
+          "$.body[*].title": {
             "match": "type"
           }
         }

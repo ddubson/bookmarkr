@@ -11,12 +11,14 @@ branches:
   - master
 install:
 - npm i -g codecov
+- gem install pact-provider-verifier
 script:
 - cd $TRAVIS_BUILD_DIR/api
 - yarn install
 - yarn test --collectCoverage
 - codecov
 - yarn build
+- yarn serve &
 - cd $TRAVIS_BUILD_DIR/web
 - yarn install
 - yarn test --collectCoverage
@@ -24,6 +26,7 @@ script:
 - codecov
 - yarn build
 - cd $TRAVIS_BUILD_DIR
+- pact-provider-verifier pacts/books-web-client-books-api.json --provider-base-url=http://localhost:8080
 deploy:
   provider: cloudfoundry
   api: https://api.run.pcfone.io
