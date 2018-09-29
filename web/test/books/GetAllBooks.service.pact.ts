@@ -1,7 +1,8 @@
 import {getAllBooks} from "../../src/books/GetAllBooks.service";
-import {eachLike, like, somethingLike} from "@pact-foundation/pact/dsl/matchers";
+import {eachLike, somethingLike} from "@pact-foundation/pact/dsl/matchers";
+import Book from "../../src/books/Book";
 
-describe('The API', () => {​
+describe('Books API', () => {​
     describe("fetch all books", () => {
       beforeEach(() => {
         const interaction = {
@@ -29,14 +30,16 @@ describe('The API', () => {​
       });
 
       // add expectations
-      it("should fetch all books successfully", done => {
-        getAllBooks().then(response => {
-          expect(response).toEqual([{
-            id: 1,
-            author: "Stephen King",
-            title: "The Stand"
-          }]);
-        }).then(done);
+      it("should fetch all books successfully", (done: jest.DoneCallback) => {
+        getAllBooks()
+          .then((response: Book[]) => {
+            expect(response).toEqual([{
+              id: 1,
+              author: "Stephen King",
+              title: "The Stand"
+            }]);
+          })
+          .then(done);
       });
     });
 });
