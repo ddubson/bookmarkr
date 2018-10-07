@@ -41,7 +41,18 @@ yarn serve (port 8080)
 
 - Jest (using `ts-jest` as bridge from `typescript` to `ES5`)
 - Enzyme
+- Cypress - E2E Testing
 - Pact - Contract Testing
+
+### End-to-End (e2e) Testing
+
+Using Cypress to test use cases of the application.
+
+`cypress.json` contains the base configurations for Cypress runtime including `baseUrl` which defines the front end
+for testing against. It is set locally to the location where the front end is started.
+
+`cypress:open` script opens the Cypress runtime locally.
+`cypress:run` is run headless in CI. It requires the front and back end to be started (preferably in DEV mode).
 
 ### Contract Testing
 
