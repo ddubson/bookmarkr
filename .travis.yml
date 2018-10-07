@@ -6,25 +6,29 @@ cache:
   directories:
   - web/node_modules
   - api/node_modules
+  - ~/.cache
 branches:
   only:
   - master
+  - cypress
 install:
 - npm i -g codecov
 - gem install pact-provider-verifier
 script:
 - cd $TRAVIS_BUILD_DIR/api
-- yarn install
+- yarn install --frozen-lockfile
 - yarn test --collectCoverage
 - codecov
 - yarn build
 - yarn serve &
 - cd $TRAVIS_BUILD_DIR/web
-- yarn install
+- yarn install --frozen-lockfile
 - yarn test --collectCoverage
 - yarn test:pact
+- yarn start &
 - codecov
 - yarn build
+- yarn cypress:run
 - cd $TRAVIS_BUILD_DIR
 - pact-provider-verifier pacts/books-web-client-books-api.json --provider-base-url=http://localhost:8080
 deploy:
