@@ -1,33 +1,48 @@
 import * as React from "react";
-import {AppBar, CssBaseline, Grid, Toolbar, Typography, withStyles, WithStyles} from "@material-ui/core";
-import {styles} from "./BookStoreApp.styles";
 import ProductCard from "./ProductCard";
+import {PureComponent} from "react";
+import Book from "./books/Book";
+import shortid = require("shortid");
 
-interface BookStoreAppProps extends WithStyles<typeof styles> {
+export interface BookStoreAppProps {
+  getAllBooks: () => Promise<Book[]>,
 }
 
-const BookStoreApp = (props: BookStoreAppProps) => (
-    <React.Fragment>
-        <CssBaseline />
-        <Grid container>
-            <AppBar position="static"
-                    className={props.classes.appBar}>
-                <Toolbar>
-                    <Typography
-                        variant="title"
-                        color="inherit"
-                        data-test="test"
-                        noWrap
-                        className={props.classes.toolbarTitle}>
-                        Book Store
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </Grid>
-        <Grid>
-            <ProductCard />
-        </Grid>
-    </React.Fragment>
-);
+interface BookStoreAppState {
+  books: Book[]
+}
 
-export default withStyles(styles)(BookStoreApp);
+class BookStoreApp extends PureComponent<BookStoreAppProps, BookStoreAppState> {
+  constructor(props: BookStoreAppProps) {
+    super(props);
+    this.state = {
+      books: [],
+    }
+  }
+
+  componentDidMount(): void {
+    this.props.getAllBooks().then((books: Book[]) => {
+      this.setState({books})
+    })
+  }
+
+  render(): JSX.Element {
+    return <div className="container-fluid">
+      <div className="container-fluid">
+        <div data-test="page-title">
+          Book Store
+        </div>
+      </div>
+      <div>
+        {
+          this.state.books.map((book: Book) => <ProductCard
+            key={shortid.generate()}
+            title={book.title}
+            author={book.author} />)
+        }
+      </div>
+    </div>
+  };
+}
+
+export default BookStoreApp;
