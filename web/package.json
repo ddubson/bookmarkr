@@ -11,8 +11,8 @@
     "test:watch": "jest --watchAll",
     "test:pact": "BOOKS_API_URI=http://localhost:1122 jest --config ./config/pact/jest.config.js --runInBand",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --config video=false",
-    "lint": "tslint 'src/**/*.ts'"
+    "cypress:run": "cypress run",
+    "lint": "tslint 'src/**/*.ts' --fix"
   },
   "devDependencies": {
     "@pact-foundation/pact": "^5.9.1",

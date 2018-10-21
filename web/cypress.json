@@ -1,4 +1,5 @@
 {
   "baseUrl": "http://localhost:1234",
-  "projectId": "BKSTOR"
+  "projectId": "BKSTOR",
+  "video": false
 }
