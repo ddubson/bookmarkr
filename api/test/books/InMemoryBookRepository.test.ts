@@ -11,7 +11,14 @@ describe("InMemoryBookRepository", () => {
 
   describe("fetchAll", () => {
     it("should fetch all books in the repository", () => {
-      expect(bookRepository.fetchAll().length).toBeGreaterThan(0);
+      let books = bookRepository.fetchAll();
+      expect(books.length).toBeGreaterThan(0);
+      books.forEach(book => {
+        expect(book.id).toBeDefined();
+        expect(book.isbn).toBeDefined();
+        expect(book.author).toBeDefined();
+        expect(book.title).toBeDefined();
+      })
     });
   });
 
@@ -22,9 +29,10 @@ describe("InMemoryBookRepository", () => {
       it("should retrieve the book by its ID", () => {
         expect(bookRepository.findById(validId)).toEqual({
           id: validId,
+          isbn: "0-670-81302-8",
           author: "Stephen King",
           title: "IT",
-        })
+        });
       });
     });
   });

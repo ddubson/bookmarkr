@@ -19,7 +19,8 @@
         },
         "body": [
           {
-            "id": 1,
+            "id": 2,
+            "isbn": "978-0-385-12168-2",
             "author": "Stephen King",
             "title": "The Stand"
           }
@@ -32,6 +33,9 @@
             "match": "type"
           },
           "$.body[*].id": {
+            "match": "type"
+          },
+          "$.body[*].isbn": {
             "match": "type"
           },
           "$.body[*].author": {

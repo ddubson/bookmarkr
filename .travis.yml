@@ -30,7 +30,7 @@ script:
 - yarn build
 - yarn cypress:run
 - cd $TRAVIS_BUILD_DIR
-- pact-provider-verifier pacts/books-web-client-books-api.json --provider-base-url=http://localhost:8080
+- ./pact-provider-verify.sh
 deploy:
   provider: cloudfoundry
   api: https://api.run.pcfone.io

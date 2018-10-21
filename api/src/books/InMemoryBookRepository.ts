@@ -5,11 +5,13 @@ const books: Book[] = [
   {
     author: "Stephen King",
     id: 1,
+    isbn: "0-670-81302-8",
     title: "IT",
   },
   {
     author: "Stephen King",
     id: 2,
+    isbn: "978-0-385-12168-2",
     title: "The Stand",
   },
 ];

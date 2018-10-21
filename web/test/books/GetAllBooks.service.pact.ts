@@ -18,9 +18,10 @@ describe('Books API', () => {​
             },
             body: eachLike(
               {
-                id: somethingLike(1),
+                id: somethingLike(2),
+                isbn: somethingLike("978-0-385-12168-2"),
                 author: somethingLike("Stephen King"),
-                title: somethingLike("The Stand")
+                title: somethingLike("The Stand"),
               }
             )
           }
@@ -29,12 +30,12 @@ describe('Books API', () => {​
         return provider.addInteraction(interaction);
       });
 
-      // add expectations
       it("should fetch all books successfully", (done: jest.DoneCallback) => {
         getAllBooks()
           .then((response: Book[]) => {
             expect(response).toEqual([{
-              id: 1,
+              id: 2,
+              isbn: "978-0-385-12168-2",
               author: "Stephen King",
               title: "The Stand"
             }]);
