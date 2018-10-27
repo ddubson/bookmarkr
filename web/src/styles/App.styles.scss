@@ -1,0 +1,52 @@
+@import "colors.scss";
+
+body {
+    font-size: 1rem;
+    background-color: $snow;
+}
+
+.app-nav {
+    height: 2em;
+    font-size: 2em;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: $lightSalmonPink;
+
+    .app-logo {
+        width: 1em;
+    }
+
+    .app-title {
+        padding-left: 10px;
+    }
+}
+
+.app-body {
+    margin: 20px;
+
+    .product-highlight-section {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+    .card {
+        margin-left: 10px;
+    }
+
+    .card:first-child {
+        margin-left: 0;
+    }
+}
+
+.app-footer {
+
+}
+
+@for $i from 1 through 20 {
+    .width-#{$i} {
+        width: $i * 1rem
+    }
+}

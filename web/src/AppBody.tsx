@@ -28,14 +28,16 @@ export class AppBody extends PureComponent<AppBodyProps, AppBodyState> {
 
   render() {
     return (
-      <div>
-        {
-          this.state.books.map((book: Book) => <ProductCard
-            key={shortid.generate()}
-            title={book.title}
-            author={book.author}/>)
-        }
-      </div>
+      <section className="app-body">
+        <section className="product-highlight-section">
+          {
+            this.state.books.map((book: Book) => <ProductCard
+              key={shortid.generate()}
+              title={book.title}
+              author={book.author} />)
+          }
+        </section>
+      </section>
     )
   }
 }

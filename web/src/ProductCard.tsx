@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./App.styles.scss";
+import "./styles/App.styles.scss";
 
 interface ProductCardProps {
   title: string,
