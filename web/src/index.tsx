@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import BookStoreApp from "./BookStoreApp";
+import App from "./App";
 import {getAllBooks} from "./books/GetAllBooks.service";
 
 ReactDOM.render(
-  <BookStoreApp getAllBooks={getAllBooks} />,
+  <App getAllBooks={getAllBooks} />,
   document.getElementById("root")
 );

@@ -1,0 +1,15 @@
+@for $i from 1 through 20 {
+    .width-#{$i} {
+        width: $i * 1rem
+    }
+}
+
+body {
+    font-size: 1rem;
+}
+
+.app-nav {
+    height: 2em;
+    font-size: 2em;
+    padding: 10px;
+}

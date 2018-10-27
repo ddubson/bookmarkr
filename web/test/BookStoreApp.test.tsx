@@ -1,17 +1,17 @@
 import * as React from "react";
-import BookStoreApp, {BookStoreAppProps} from "../src/BookStoreApp";
+import App, {AppProps} from "../src/App";
 import {mount, ReactWrapper} from "enzyme";
 import Book from "../src/books/Book";
 
-describe("BookStoreApp", () => {
+describe("App", () => {
   let wrapper: ReactWrapper;
   const books = [new Book("Title", "Author")];
-  const props: BookStoreAppProps = {
+  const props: AppProps = {
     getAllBooks: (): Promise<Book[]> => Promise.resolve(books),
   };
 
   beforeEach(() => {
-    wrapper = mount(<BookStoreApp {...props} />);
+    wrapper = mount(<App {...props} />);
   });
 
   it("should render 'Book Store' title", () => {

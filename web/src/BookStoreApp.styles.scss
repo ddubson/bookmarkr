@@ -1,5 +1,0 @@
-@for $i from 1 through 20 {
-    .width-#{$i} {
-        width: $i * 1rem
-    }
-}
