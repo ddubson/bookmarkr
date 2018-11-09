@@ -15,13 +15,6 @@ describe("App", () => {
   });
 
   it("should render 'Book Store' title", () => {
-    expect(wrapper.find("[data-test='page-title']").text()).toEqual("Book Store")
-  });
-
-  describe("on initial render", () => {
-    it("should render all books", () => {
-      wrapper.update();
-      expect(wrapper.find("ProductCard").text()).toEqual("Title - Author");
-    });
+    expect(wrapper.find("[data-test='page-title']").text()).toEqual("A Simple Book Store")
   });
 });
