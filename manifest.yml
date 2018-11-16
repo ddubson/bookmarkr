@@ -1,7 +1,7 @@
 ---
 applications:
 - name: book-store-app-web
-  path: web/
+  path: web/dist/
   routes:
     - route: book-store-app-web.apps.pcfone.io
   env:

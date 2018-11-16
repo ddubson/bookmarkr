@@ -1,7 +1,8 @@
 .idea/
 *.iml
 .cache
-*/dist/
+web/dist/bundle
+api/dist
 node_modules/
 **/*.log
 **/coverage/

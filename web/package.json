@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env BOOKS_API_URI=http://localhost:8080 ./node_modules/.bin/parcel src/index.html",
-    "build": "./node_modules/.bin/parcel build src/index.html",
+    "build": "./node_modules/.bin/parcel build src/index.html --out-dir dist/bundle/",
     "test": "tslint 'src/**/*.ts' && jest",
     "test:watch": "jest --watchAll",
     "test:pact": "cross-env BOOKS_API_URI=http://localhost:1122 jest --config ./config/pact/jest.config.js --runInBand",
