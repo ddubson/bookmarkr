@@ -1,24 +1,29 @@
 import {PureComponent} from "react";
 import Book from "./books/Book";
-import ProductCard from "./ProductCard";
 import * as React from "react";
 import shortid = require("shortid");
+
+const loader = require("./images/loader.svg");
 import AddBookmark from "./AddBookmark";
+import firebase from "./firebase";
 
 export interface AppBodyProps {
-  getAllBooks: () => Promise<Book[]>,
+  getAllBooks: () => Promise<Book[]>;
 }
 
 interface AppBodyState {
-  books: Book[],
-  bookmarks: Bookmark[]
+  books: Book[];
+  bookmarks: Bookmark[];
+  bookmarksLoading: boolean;
 }
 
 class Bookmark {
+  public id: string;
   public title: string;
   public link: string;
 
   constructor(title: string, link: string) {
+    this.id = shortid.generate();
     this.title = title;
     this.link = link;
   }
@@ -29,34 +34,44 @@ export class AppBody extends PureComponent<AppBodyProps, AppBodyState> {
     super(props);
     this.state = {
       books: [],
-      bookmarks: []
+      bookmarks: [],
+      bookmarksLoading: true,
     }
   }
 
   componentDidMount(): void {
-    this.props.getAllBooks().then((books: Book[]) => {
-      this.setState({books})
-    })
+    const itemsRef = firebase.database().ref('bookmarks');
+    itemsRef.on('value', (snapshot) => {
+      let bookmarks = snapshot.val();
+      let newState = [];
+      for (let bookmark in bookmarks) {
+        newState.push({
+          id: bookmark,
+          title: bookmarks[bookmark].title,
+          link: bookmarks[bookmark].link
+        });
+      }
+      this.setState({
+        bookmarks: newState,
+        bookmarksLoading: false,
+      });
+    });
   }
 
   render() {
     return (
       <section className="app-body">
-        <section className="product-highlight-section">
-          {
-            this.state.books.map((book: Book) => <ProductCard
-              key={shortid.generate()}
-              title={book.title}
-              author={book.author}/>)
-          }
-        </section>
         <section>
           <AddBookmark addBookmark={(title, link) => {
-            this.setState({bookmarks: [new Bookmark(title, link), ...this.state.bookmarks]})
+            let bookmark = new Bookmark(title, link);
+            firebase.database().ref("bookmarks").push(bookmark);
+            this.setState({bookmarks: [bookmark, ...this.state.bookmarks]})
           }}/>
         </section>
         <section>
-          {this.state.bookmarks.map(bookmark => <div>{bookmark.title}: {bookmark.link}</div>)}
+          <h2>Bookmarks</h2>
+          {this.state.bookmarksLoading && <img src={loader}/>}
+          {this.state.bookmarks.map(bookmark => <div key={shortid.generate()}>{bookmark.title}: {bookmark.link}</div>)}
         </section>
       </section>
     )

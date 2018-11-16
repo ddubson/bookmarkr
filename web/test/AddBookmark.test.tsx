@@ -9,7 +9,7 @@ describe("AddBookmark", () => {
 
   beforeEach(() => {
     addBookmarkFn = jest.fn();
-    wrapper = new ComponentWrapper(mount(<AddBookmark addBookmark={addBookmarkFn}/>))
+    wrapper = new ComponentWrapper(mount(<AddBookmark addBookmark={addBookmarkFn}/>));
   });
 
   describe("when I enter a title and link", () => {
@@ -20,11 +20,11 @@ describe("AddBookmark", () => {
 
     describe("and click 'Save'", () => {
       beforeEach(() => {
-        wrapper.button("[data-test='bookmark-save']").click()
+        wrapper.button("[data-test='bookmark-save']").submit();
       });
 
       it("should invoke add bookmark function", () => {
-        expect(addBookmarkFn).toHaveBeenCalledWith("hello", "http://example.com")
+        expect(addBookmarkFn).toHaveBeenCalledWith("hello", "http://example.com");
       });
     });
   });

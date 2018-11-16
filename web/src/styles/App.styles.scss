@@ -50,3 +50,11 @@ body {
         width: $i * 1rem
     }
 }
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+    fill: #FF6700;
+}

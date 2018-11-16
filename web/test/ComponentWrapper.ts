@@ -1,31 +1,35 @@
 import {ReactWrapper} from "enzyme";
 
 export class ComponentWrapper {
-  private _component: ReactWrapper;
+  private component: ReactWrapper;
 
   constructor(component: ReactWrapper) {
-    this._component = component;
+    this.component = component;
   }
 
-  find(selector: string) {
-    return this._component.find(selector);
+  public find(selector: string) {
+    return this.component.find(selector);
   }
 
-  button(buttonSelector: string) {
-    const button = this._component.find(buttonSelector).first();
+  public button(buttonSelector: string) {
+    const button = this.component.find(buttonSelector).first();
     return {
       click() {
         button.simulate("click");
-      }
-    }
+      },
+
+      submit() {
+        button.simulate("submit");
+      },
+    };
   }
 
-  input(input: ReactWrapper) {
+  public input(input: ReactWrapper) {
     return {
       content(value: string) {
-        input.simulate("change", {target: {value}})
-      }
-    }
+        input.simulate("change", {target: {value}});
+      },
+    };
   }
 
 }
