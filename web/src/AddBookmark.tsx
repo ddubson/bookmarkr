@@ -1,8 +1,9 @@
 import {ChangeEvent, PureComponent} from "react";
 import * as React from "react";
+import Bookmark from "./Bookmark";
 
 interface AddBookmarkProps {
-  addBookmark: (bookmarkTitle: string, bookmarkLink: string) => void;
+  addBookmark: (bookmark: Bookmark) => void;
 }
 
 interface AddBookmarkState {
@@ -27,7 +28,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
           <div className={"card-body"}>
             <form onSubmit={(event) => {
               event.preventDefault();
-              this.props.addBookmark(this.state.bookmarkTitle, this.state.bookmarkLink);
+              this.props.addBookmark(new Bookmark(this.state.bookmarkTitle, this.state.bookmarkLink));
             }}>
               <div className={"input-group mb-3"}>
                 <label htmlFor="bookmarkTitle" className={"mr-2"}>Title</label>

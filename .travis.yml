@@ -24,10 +24,10 @@ script:
 - yarn install --frozen-lockfile
 - yarn test --collectCoverage
 #- yarn test:pact
-#- yarn start &
+- yarn start &
 - codecov
 - yarn build
-#- yarn cypress:run
+- yarn cypress:run
 - cd $TRAVIS_BUILD_DIR
 #- ./pact-provider-verify.sh
 deploy:
