@@ -26,6 +26,8 @@ export class AppBody extends PureComponent<AppBodyProps, AppBodyState> {
       bookmarksLoading: true,
       books: [],
     };
+    this.addBookmark = this.addBookmark.bind(this);
+    this.removeBookmark = this.removeBookmark.bind(this);
   }
 
   public componentDidMount(): void {
@@ -39,18 +41,31 @@ export class AppBody extends PureComponent<AppBodyProps, AppBodyState> {
     return (
       <section className="app-body">
         <section>
-          <AddBookmark addBookmark={(bookmark: Bookmark) => {
-            this.setState({bookmarks: [bookmark, ...this.state.bookmarks]});
-          }} />
+          <AddBookmark
+            addBookmark={this.addBookmark}
+          />
         </section>
         <section>
           <h2 className="text-white mt-4">Bookmarks</h2>
           {this.state.bookmarksLoading && <img alt="bookmarkr-logo" src={loader} />}
           {this.state.bookmarks.length === 0 && <p className="text-white font-italic">No bookmarks yet.</p>}
           {this.state.bookmarks.map((bookmark) =>
-            <BookmarkCard key={shortid.generate()} title={bookmark.title} link={bookmark.link} />)}
+            <BookmarkCard key={shortid.generate()}
+                          id={bookmark.id}
+                          title={bookmark.title}
+                          link={bookmark.link}
+                          removeBookmark={this.removeBookmark}
+            />)}
         </section>
       </section>
     );
+  }
+
+  private addBookmark(bookmark: Bookmark) {
+    this.setState({bookmarks: [bookmark, ...this.state.bookmarks]});
+  }
+
+  private removeBookmark(id: string) {
+    this.setState({bookmarks: this.state.bookmarks.filter((bookmark) => bookmark.id !== id)});
   }
 }

@@ -39,6 +39,18 @@ body {
     }
 }
 
+.btn-primary {
+    background-color: $horizon;
+
+    &:hover {
+        background-color: $elephant;
+    }
+}
+
+.card-link {
+    color: $horizon;
+}
+
 /* Set the color of the icon */
 svg path, svg rect{
     fill: #FF6700;

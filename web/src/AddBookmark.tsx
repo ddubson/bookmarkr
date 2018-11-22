@@ -46,7 +46,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
                 }}/>
               </div>
 
-              <input type="submit" value="Add Bookmark" data-test="bookmark-save"/>
+              <input type="submit" className="btn btn-primary" value="Add Bookmark" data-test="bookmark-save"/>
             </form>
           </div>
         </div>

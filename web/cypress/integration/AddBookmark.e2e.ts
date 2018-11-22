@@ -19,6 +19,16 @@ describe("Add a bookmark", () => {
           cy.get(".card-title").contains("Hello");
           cy.get(".card-text").contains("World!");
         });
+
+        describe("when click Remove", () => {
+          beforeEach(() => {
+            cy.get("a[data-test=\"bookmark-remove\"]").click();
+          });
+
+          it("should remove the bookmark", () => {
+            cy.get("p").contains("No bookmarks yet");
+          });
+        });
       });
     });
   });
