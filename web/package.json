@@ -5,7 +5,7 @@
   "author": "Dmitriy Dubson <d.dubson@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cross-env BOOKS_API_URI=http://localhost:8080 ./node_modules/.bin/parcel src/index.html",
+    "start": "cross-env BOOKS_API_URI=http://localhost:8080 ./node_modules/.bin/parcel src/index.html --out-dir dist/bundle",
     "build": "./node_modules/.bin/parcel build src/index.html --out-dir dist/bundle/",
     "test": "tslint 'src/**/*.ts' && jest",
     "test:watch": "jest --watchAll",
@@ -38,7 +38,6 @@
     "@types/react-dom": "^16.0.7",
     "@types/shortid": "^0.0.29",
     "axios": "^0.18.0",
-    "firebase": "^5.5.8",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "shortid": "^2.2.13"

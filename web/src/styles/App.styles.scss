@@ -2,7 +2,7 @@
 
 body {
     font-size: 1rem;
-    background-color: $snow;
+    background-color: $elephant;
 }
 
 .app-nav {
@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: $lightSalmonPink;
+    background-color: $snow;
 
     .app-logo {
         width: 1em;
@@ -31,18 +31,6 @@ body {
         flex-direction: row;
         align-items: baseline;
     }
-
-    .card {
-        margin-left: 10px;
-    }
-
-    .card:first-child {
-        margin-left: 0;
-    }
-}
-
-.app-footer {
-
 }
 
 @for $i from 1 through 20 {
@@ -51,10 +39,7 @@ body {
     }
 }
 
-/*
-  Set the color of the icon
-*/
-svg path,
-svg rect{
+/* Set the color of the icon */
+svg path, svg rect{
     fill: #FF6700;
 }

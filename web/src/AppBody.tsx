@@ -5,7 +5,7 @@ import shortid = require("shortid");
 
 const loader = require("./images/loader.svg");
 import AddBookmark from "./AddBookmark";
-import firebase from "./firebase";
+import {BookmarkCard} from "./BookmarkCard";
 
 export interface AppBodyProps {
   getAllBooks: () => Promise<Book[]>;
@@ -40,21 +40,9 @@ export class AppBody extends PureComponent<AppBodyProps, AppBodyState> {
   }
 
   componentDidMount(): void {
-    const itemsRef = firebase.database().ref('bookmarks');
-    itemsRef.on('value', (snapshot) => {
-      let bookmarks = snapshot.val();
-      let newState = [];
-      for (let bookmark in bookmarks) {
-        newState.push({
-          id: bookmark,
-          title: bookmarks[bookmark].title,
-          link: bookmarks[bookmark].link
-        });
-      }
-      this.setState({
-        bookmarks: newState,
-        bookmarksLoading: false,
-      });
+    this.setState({
+      bookmarks: this.state.bookmarks,
+      bookmarksLoading: false,
     });
   }
 
@@ -63,15 +51,15 @@ export class AppBody extends PureComponent<AppBodyProps, AppBodyState> {
       <section className="app-body">
         <section>
           <AddBookmark addBookmark={(title, link) => {
-            let bookmark = new Bookmark(title, link);
-            firebase.database().ref("bookmarks").push(bookmark);
-            this.setState({bookmarks: [bookmark, ...this.state.bookmarks]})
-          }}/>
+            this.setState({bookmarks: [new Bookmark(title, link), ...this.state.bookmarks]})
+          }} />
         </section>
         <section>
-          <h2>Bookmarks</h2>
-          {this.state.bookmarksLoading && <img src={loader}/>}
-          {this.state.bookmarks.map(bookmark => <div key={shortid.generate()}>{bookmark.title}: {bookmark.link}</div>)}
+          <h2 className="text-white mt-4">Bookmarks</h2>
+          {this.state.bookmarksLoading && <img src={loader} />}
+          {this.state.bookmarks.length === 0 && <p className="text-white font-italic">No bookmarks yet.</p>}
+          {this.state.bookmarks.map(bookmark =>
+            <BookmarkCard key={shortid.generate()} title={bookmark.title} link={bookmark.link} />)}
         </section>
       </section>
     )
