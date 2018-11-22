@@ -1,8 +1,8 @@
 import * as React from "react";
 
 interface BookmarkCardProps {
-    title: string,
-    link: string
+    title: string;
+    link: string;
 }
 
 export const BookmarkCard = ({title, link}: BookmarkCardProps) => (

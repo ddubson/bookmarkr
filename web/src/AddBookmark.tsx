@@ -16,12 +16,12 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
     super(props);
 
     this.state = {
-      bookmarkTitle: "",
       bookmarkLink: "",
-    }
+      bookmarkTitle: "",
+    };
   }
 
-  render() {
+  public render() {
     return (
       <article>
         <div className={"card"}>
@@ -34,7 +34,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
                 <label htmlFor="bookmarkTitle" className={"mr-2"}>Title</label>
                 <input type="text" data-test="bookmark-title" name="bookmarkTitle"
                        value={this.state.bookmarkTitle} onChange={(e) => {
-                  this.setState({bookmarkTitle: e.target.value})
+                  this.setState({bookmarkTitle: e.target.value});
                 }}/>
               </div>
 
@@ -42,7 +42,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
                 <label htmlFor="bookmarkLink" className={"mr-2"}>Link</label>
                 <input type="text" data-test="bookmark-link" name="bookmarkLink"
                        value={this.state.bookmarkLink} onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                  this.setState({bookmarkLink: e.target.value})
+                  this.setState({bookmarkLink: e.target.value});
                 }}/>
               </div>
 
@@ -51,6 +51,6 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
           </div>
         </div>
       </article>
-    )
+    );
   }
 }
