@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "bookmarkr-api",
   "version": "1.0.0",
   "main": "dist/App.js",
   "license": "MIT",

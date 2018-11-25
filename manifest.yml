@@ -1,17 +1,17 @@
 ---
 applications:
-- name: book-store-app-web
+- name: bookmarkr-web
   path: web/dist/
   routes:
-    - route: book-store-app-web.apps.pcfone.io
+    - route: bookmarkr-web.apps.pcfone.io
   env:
-    BOOKS_API_URI: https://book-store-app-api.apps.pcfone.io
+    BOOKMARKR_API_URI: https://bookmarkr-api.apps.pcfone.io
   buildpacks:
     - https://github.com/cloudfoundry/staticfile-buildpack.git
-- name: book-store-app-api
+- name: bookmarkr-api
   path: api
   command: node dist/App.js
   routes:
-  - route: book-store-app-api.apps.pcfone.io
+  - route: bookmarkr-api.apps.pcfone.io
   buildpacks:
     - https://github.com/cloudfoundry/nodejs-buildpack.git

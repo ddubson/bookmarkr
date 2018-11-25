@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/ddubson/book-store-app.svg?branch=master)](https://travis-ci.org/ddubson/book-store-app)
-[![codecov](https://codecov.io/gh/ddubson/book-store-app/branch/master/graph/badge.svg)](https://codecov.io/gh/ddubson/book-store-app)
+[![Build Status](https://travis-ci.org/ddubson/bookmarkr.svg?branch=master)](https://travis-ci.org/ddubson/bookmarkr)
+[![codecov](https://codecov.io/gh/ddubson/bookmarkr/branch/master/graph/badge.svg)](https://codecov.io/gh/ddubson/bookmarkr)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://cypress.io)
 
-# Book Store App
+# Bookmarkr
 
 ## Running Locally (MacOS / *Nix)
 
