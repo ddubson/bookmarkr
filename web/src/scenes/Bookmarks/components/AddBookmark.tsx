@@ -1,5 +1,6 @@
-import {ChangeEvent, PureComponent} from "react";
+import {ChangeEvent, FormEvent, PureComponent} from "react";
 import * as React from "react";
+import ErrorBanner from "../../../components/ErrorBanner";
 import Bookmark from "../Bookmark";
 
 interface AddBookmarkProps {
@@ -9,6 +10,10 @@ interface AddBookmarkProps {
 interface AddBookmarkState {
   bookmarkTitle: string;
   bookmarkLink: string;
+  error: {
+    display: boolean;
+    message?: string;
+  };
 }
 
 export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBookmarkState> {
@@ -18,7 +23,12 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
     this.state = {
       bookmarkLink: "",
       bookmarkTitle: "",
+      error: {
+        display: false,
+      },
     };
+
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   public render() {
@@ -26,16 +36,14 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
       <article>
         <div className={"card"}>
           <div className={"card-body"}>
-            <form onSubmit={(event) => {
-              event.preventDefault();
-              this.props.addBookmark(new Bookmark(this.state.bookmarkTitle, this.state.bookmarkLink));
-            }}>
+            {this.state.error.display && <ErrorBanner errorMessage={this.state.error.message} />}
+            <form onSubmit={this.onSubmit}>
               <div className={"input-group mb-3"}>
                 <label htmlFor="bookmarkTitle" className={"mr-2"}>Title</label>
                 <input type="text" data-test="bookmark-title" name="bookmarkTitle"
-                       value={this.state.bookmarkTitle} onChange={(e) => {
+                       value={this.state.bookmarkTitle} onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   this.setState({bookmarkTitle: e.target.value});
-                }}/>
+                }} />
               </div>
 
               <div className={"input-group mb-3"}>
@@ -43,14 +51,35 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
                 <input type="text" data-test="bookmark-link" name="bookmarkLink"
                        value={this.state.bookmarkLink} onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   this.setState({bookmarkLink: e.target.value});
-                }}/>
+                }} />
               </div>
 
-              <input type="submit" className="btn btn-primary" value="Add Bookmark" data-test="bookmark-save"/>
+              <input type="submit" className="btn btn-primary" value="Add Bookmark" data-test="bookmark-save" />
             </form>
           </div>
         </div>
       </article>
     );
+  }
+
+  private onSubmit(event: FormEvent<HTMLFormElement>): void {
+    event.preventDefault();
+    const {bookmarkTitle: title, bookmarkLink: link} = this.state;
+
+    if (!title || title.length === 0) {
+      this.setError("Title is a required field.");
+      return;
+    }
+
+    this.clearAllErrors();
+    this.props.addBookmark(new Bookmark(title, link));
+  }
+
+  private setError(errorText: string): void {
+    this.setState({error: {display: true, message: errorText}});
+  }
+
+  private clearAllErrors(): void {
+    this.setState({error: {display: false, message: undefined}});
   }
 }

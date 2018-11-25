@@ -24,7 +24,9 @@ export class ComponentWrapper {
     };
   }
 
-  public input(input: ReactWrapper) {
+  public input(inputSelector: string) {
+    const input = this.component.find(inputSelector).first();
+
     return {
       content(value: string) {
         input.simulate("change", {target: {value}});
