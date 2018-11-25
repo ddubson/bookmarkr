@@ -1,31 +1,28 @@
 import * as React from "react";
 import {PureComponent} from "react";
 import * as shortid from "shortid";
-import AddBookmark from "./AddBookmark";
-import Bookmark from "./Bookmark";
-import {BookmarkCard} from "./BookmarkCard";
-import Book from "./books/Book";
+import Bookmark from "../../scenes/Bookmarks/Bookmark";
+import AddBookmark from "./components/AddBookmark";
+import {BookmarkCard} from "./components/BookmarkCard";
 
-const loader = require("./images/loader.svg");
+const loader = require("../../scenes/Bookmarks/images/loader.svg");
 
-export interface AppBodyProps {
-  getAllBooks: () => Promise<Book[]>;
+export interface BookmarksSceneProps {
 }
 
-interface AppBodyState {
-  books: Book[];
+interface BookmarksSceneState {
   bookmarks: Bookmark[];
   bookmarksLoading: boolean;
 }
 
-export class AppBody extends PureComponent<AppBodyProps, AppBodyState> {
-  constructor(props: AppBodyProps) {
+export class BookmarksScene extends PureComponent<BookmarksSceneProps, BookmarksSceneState> {
+  constructor(props: BookmarksSceneProps) {
     super(props);
     this.state = {
       bookmarks: [],
       bookmarksLoading: true,
-      books: [],
     };
+
     this.addBookmark = this.addBookmark.bind(this);
     this.removeBookmark = this.removeBookmark.bind(this);
   }

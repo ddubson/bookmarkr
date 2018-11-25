@@ -1,6 +1,6 @@
 import {ChangeEvent, PureComponent} from "react";
 import * as React from "react";
-import Bookmark from "./Bookmark";
+import Bookmark from "../Bookmark";
 
 interface AddBookmarkProps {
   addBookmark: (bookmark: Bookmark) => void;

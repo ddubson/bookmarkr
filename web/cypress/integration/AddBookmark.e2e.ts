@@ -1,7 +1,7 @@
 describe("Add a bookmark", () => {
   describe("when I navigate to the home page", () => {
     beforeEach(() => {
-      cy.visit("/")
+      cy.visit("/");
     });
 
     describe("and I enter bookmark title and link into the form", () => {

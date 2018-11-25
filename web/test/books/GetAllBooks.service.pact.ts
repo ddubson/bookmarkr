@@ -2,7 +2,7 @@ import {getAllBooks} from "../../src/books/GetAllBooks.service";
 import {eachLike, somethingLike} from "@pact-foundation/pact/dsl/matchers";
 import Book from "../../src/books/Book";
 
-describe('Books API', () => {​
+xdescribe('Books API', () => {​
     describe("fetch all books", () => {
       beforeEach(() => {
         const interaction = {

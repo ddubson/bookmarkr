@@ -1,8 +1,8 @@
-import {ComponentWrapper} from "./ComponentWrapper";
+import {ComponentWrapper} from "../../../helpers/ComponentWrapper";
 import {mount} from "enzyme";
 import * as React from "react";
-import AddBookmark from "../src/AddBookmark";
-import Bookmark from "../src/Bookmark";
+import AddBookmark from "../../../../src/scenes/Bookmarks/components/AddBookmark";
+import Bookmark from "../../../../src/scenes/Bookmarks/Bookmark";
 import objectContaining = jasmine.objectContaining;
 
 describe("AddBookmark", () => {
