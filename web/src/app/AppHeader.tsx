@@ -1,9 +1,16 @@
 import * as React from "react";
 
-const AppHeader = () => (
+interface AppHeaderProps {
+  logout: () => void;
+}
+
+const AppHeader = (props: AppHeaderProps) => (
   <nav className="app-nav">
     <div data-test="page-title" className="app-title">
       Bookmarkr
+    </div>
+    <div>
+      <a href="#" onClick={props.logout}>Logout</a>
     </div>
   </nav>
 );
