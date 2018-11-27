@@ -12,7 +12,7 @@ describe("AddBookmark", () => {
 
   beforeEach(() => {
     addBookmarkFn = jest.fn();
-    wrapper = new ComponentWrapper(mount(<AddBookmark addBookmark={addBookmarkFn} />));
+    wrapper = new ComponentWrapper(mount(<AddBookmark addBookmark={addBookmarkFn}/>));
   });
 
   describe("when I enter a title and link", () => {
@@ -23,7 +23,7 @@ describe("AddBookmark", () => {
 
     describe("and click 'Add Bookmark'", () => {
       beforeEach(() => {
-        wrapper.button("[data-test='bookmark-save']").submit();
+        clickAddBookmark();
       });
 
       it("should invoke add bookmark function", () => {
@@ -46,7 +46,7 @@ describe("AddBookmark", () => {
 
       describe("and click 'Add Bookmark'", () => {
         beforeEach(() => {
-          wrapper.button("[data-test='bookmark-save']").submit();
+          clickAddBookmark();
         });
 
         it("should not call add bookmark", () => {
@@ -61,7 +61,7 @@ describe("AddBookmark", () => {
         describe("when I enter a title to fix the issue", () => {
           beforeEach(() => {
             setBookmarkTitle("Hello");
-            wrapper.button("[data-test='bookmark-save']").submit();
+            clickAddBookmark();
           });
 
           it("should remove error banner", () => {
@@ -71,6 +71,10 @@ describe("AddBookmark", () => {
       });
     });
   });
+
+  function clickAddBookmark() {
+    wrapper.button("[data-test='bookmark-save']").submit();
+  }
 
   function setBookmarkTitle(title: string): void {
     wrapper.input("[data-test='bookmark-title']").content(title);

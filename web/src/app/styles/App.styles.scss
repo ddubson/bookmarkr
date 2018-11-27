@@ -1,7 +1,7 @@
 @import "colors";
 
 body {
-    font-size: 1rem;
+    font-size: 0.8rem;
     background-color: $elephant;
 }
 
@@ -25,12 +25,6 @@ body {
 
 .app-body {
     margin: 20px;
-
-    .product-highlight-section {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-    }
 }
 
 @for $i from 1 through 20 {
