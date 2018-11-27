@@ -69,16 +69,27 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
   }
 
   private onSubmit(event: FormEvent<HTMLFormElement>): void {
+    this.submit(event, (title, link) => {
+      this.props.addBookmark(new Bookmark(title, link));
+    }, (errorMessage) => {
+      this.setError(errorMessage);
+    });
+  }
+
+  private submit(event: FormEvent<HTMLFormElement>,
+                 onSubmit: (title: string, link: string) => void,
+                 onError: (errorMessage: string) => void) {
     event.preventDefault();
     const {bookmarkTitle: title, bookmarkLink: link} = this.state;
 
-    if (!title || title.length === 0) {
-      this.setError("Title is a required field.");
-      return;
-    }
+    const titleIsEmpty = !title || title.length === 0;
 
-    this.clearAllErrors();
-    this.props.addBookmark(new Bookmark(title, link));
+    if (titleIsEmpty) {
+      onError("Title is a required field.");
+    } else {
+      this.clearAllErrors();
+      onSubmit(title, link);
+    }
   }
 
   private setError(errorText: string): void {
