@@ -15,9 +15,10 @@ describe("AddBookmark", () => {
     wrapper = new ComponentWrapper(mount(<AddBookmark addBookmark={addBookmarkFn}/>));
   });
 
-  describe("when I enter a title and link", () => {
+  describe("when I enter a title, content, and link", () => {
     beforeEach(() => {
       setBookmarkTitle("hello");
+      setBookmarkContent("Hello World! Whoo!");
       setBookmarkLink("http://example.com");
     });
 
@@ -28,7 +29,7 @@ describe("AddBookmark", () => {
 
       it("should invoke add bookmark function", () => {
         expect(addBookmarkFn).toHaveBeenCalledWith(
-          objectContaining({title: "hello", link: "http://example.com"}));
+          objectContaining({title: "hello", content: "Hello World! Whoo!", link: "http://example.com"}));
       });
     });
   });
@@ -76,11 +77,15 @@ describe("AddBookmark", () => {
     wrapper.button("[data-test='bookmark-save']").submit();
   }
 
+  function setBookmarkContent(content: string): void {
+    wrapper.input("[data-test='input-bookmark-content']").content(content);
+  }
+
   function setBookmarkTitle(title: string): void {
-    wrapper.input("[data-test='bookmark-title']").content(title);
+    wrapper.input("[data-test='input-bookmark-title']").content(title);
   }
 
   function setBookmarkLink(link: string): void {
-    wrapper.input("[data-test='bookmark-link']").content(link);
+    wrapper.input("[data-test='input-bookmark-link']").content(link);
   }
 });

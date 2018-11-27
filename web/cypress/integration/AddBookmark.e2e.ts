@@ -4,10 +4,11 @@ describe("Add a bookmark", () => {
       cy.visit("/");
     });
 
-    describe("and I enter bookmark title and link into the form", () => {
+    describe("and I enter bookmark title, body, link into the form", () => {
       beforeEach(() => {
-        cy.get("input[data-test=\"bookmark-title\"]").type("Hello");
-        cy.get("input[data-test=\"bookmark-link\"]").type("World!");
+        cy.get("input[data-test=\"input-bookmark-title\"]").type("Hello");
+        cy.get("input[data-test=\"input-bookmark-content\"]").type("Hello there everyone. This is some content.");
+        cy.get("input[data-test=\"input-bookmark-link\"]").type("World!");
       });
 
       describe("when I click Add Bookmark", () => {
@@ -17,10 +18,11 @@ describe("Add a bookmark", () => {
 
         it("should populate a bookmark card", () => {
           cy.get(".card-title").contains("Hello");
-          cy.get(".card-text").contains("World!");
+          cy.get("div[data-test=\"bookmark-content\"]").contains("Hello there everyone. This is some content.");
+          cy.get("div[data-test=\"bookmark-link\"]").contains("World!");
         });
 
-        describe("when click Remove", () => {
+        describe("when I click Remove", () => {
           beforeEach(() => {
             cy.get("a[data-test=\"bookmark-remove\"]").click();
           });

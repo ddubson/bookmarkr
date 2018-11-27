@@ -49,6 +49,7 @@ export class BookmarksScene extends PureComponent<BookmarksSceneProps, Bookmarks
           {this.state.bookmarks.map((bookmark) =>
             <BookmarkCard key={shortid.generate()}
                           id={bookmark.id}
+                          content={bookmark.content}
                           title={bookmark.title}
                           link={bookmark.link}
                           removeBookmark={this.removeBookmark}

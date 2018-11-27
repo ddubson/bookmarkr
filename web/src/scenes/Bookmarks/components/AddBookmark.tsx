@@ -9,6 +9,7 @@ interface AddBookmarkProps {
 
 interface AddBookmarkState {
   bookmarkTitle: string;
+  bookmarkContent: string;
   bookmarkLink: string;
   error: {
     display: boolean;
@@ -21,6 +22,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
     super(props);
 
     this.state = {
+      bookmarkContent: "",
       bookmarkLink: "",
       bookmarkTitle: "",
       error: {
@@ -30,6 +32,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
 
     this.onSubmit = this.onSubmit.bind(this);
     this.setTitle = this.setTitle.bind(this);
+    this.setContent = this.setContent.bind(this);
     this.setLink = this.setLink.bind(this);
   }
 
@@ -42,13 +45,19 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
             <form onSubmit={this.onSubmit}>
               <div className={"input-group mb-3"}>
                 <label htmlFor="bookmarkTitle" className={"mr-2"}>Title</label>
-                <input type="text" data-test="bookmark-title" name="bookmarkTitle"
+                <input type="text" data-test="input-bookmark-title" name="bookmarkTitle"
                        value={this.state.bookmarkTitle} onChange={this.setTitle}/>
               </div>
 
               <div className={"input-group mb-3"}>
+                <label htmlFor="bookmarkContent" className={"mr-2"}>Text</label>
+                <input type="text" data-test="input-bookmark-content" name="bookmarkContent"
+                       value={this.state.bookmarkContent} onChange={this.setContent}/>
+              </div>
+
+              <div className={"input-group mb-3"}>
                 <label htmlFor="bookmarkLink" className={"mr-2"}>Link</label>
-                <input type="text" data-test="bookmark-link" name="bookmarkLink"
+                <input type="text" data-test="input-bookmark-link" name="bookmarkLink"
                        value={this.state.bookmarkLink} onChange={this.setLink}/>
               </div>
 
@@ -68,19 +77,23 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
     this.setState({bookmarkLink: e.target.value});
   }
 
+  private setContent(e: ChangeEvent<HTMLInputElement>) {
+    this.setState({bookmarkContent: e.target.value});
+  }
+
   private onSubmit(event: FormEvent<HTMLFormElement>): void {
-    this.submit(event, (title, link) => {
-      this.props.addBookmark(new Bookmark(title, link));
-    }, (errorMessage) => {
+    this.submit(event, (title: string, content: string, link: string) => {
+      this.props.addBookmark(new Bookmark(title, content, link));
+    }, (errorMessage: string) => {
       this.setError(errorMessage);
     });
   }
 
   private submit(event: FormEvent<HTMLFormElement>,
-                 onSubmit: (title: string, link: string) => void,
+                 onSubmit: (title: string, content: string, link: string) => void,
                  onError: (errorMessage: string) => void) {
     event.preventDefault();
-    const {bookmarkTitle: title, bookmarkLink: link} = this.state;
+    const {bookmarkTitle: title, bookmarkContent: content, bookmarkLink: link} = this.state;
 
     const titleIsEmpty = !title || title.length === 0;
 
@@ -88,7 +101,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
       onError("Title is a required field.");
     } else {
       this.clearAllErrors();
-      onSubmit(title, link);
+      onSubmit(title, content, link);
     }
   }
 
