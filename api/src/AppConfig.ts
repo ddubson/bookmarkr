@@ -1,7 +1,11 @@
 import {Express} from "express";
-import InMemoryBookRepository from "./books/InMemoryBookRepository";
+import PostgreBookRepository from "./books/PostgreBookRepository";
 
-export const bookRepository = InMemoryBookRepository.createRepository();
+import { config as dotEnvConfig } from "dotenv";
+
+dotEnvConfig();
+
+export const bookRepository = PostgreBookRepository.createRepository();
 
 export const allowCrossOriginHeaders = (app: Express): void => {
     app.use((req, res, next) => {

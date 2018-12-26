@@ -10,7 +10,12 @@
     "lint": "tslint 'src/**/*.ts'"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "@types/dotenv": "^6.1.0",
+    "@types/pg": "^7.4.11",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.3",
+    "pg": "^7.7.1",
+    "pg-pool": "^2.0.5"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
