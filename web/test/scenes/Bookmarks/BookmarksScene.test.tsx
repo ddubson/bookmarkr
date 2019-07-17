@@ -25,7 +25,7 @@ describe("BookmarksScene", () => {
 
     it("should display bookmark's content", () => {
       const bookmarkContent = wrapper.find("[data-test='bookmark-content']").text();
-      expect(bookmarkContent).toEqual("BookmarkContent");
+      expect(bookmarkContent).toContain("BookmarkContent");
     });
 
     it("should display bookmark's link", () => {

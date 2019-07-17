@@ -51,8 +51,13 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
 
               <div className={"input-group mb-3"}>
                 <label htmlFor="bookmarkContent" className={"mr-2"}>Text</label>
-                <input type="text" data-test="input-bookmark-content" name="bookmarkContent"
-                       value={this.state.bookmarkContent} onChange={this.setContent}/>
+                <textarea name="bookmarkContent"
+                          id="bookmarkContent"
+                          data-test="input-bookmark-content"
+                          cols={30}
+                          rows={10}
+                          value={this.state.bookmarkContent}
+                          onChange={this.setContent}/>
               </div>
 
               <div className={"input-group mb-3"}>
@@ -77,7 +82,7 @@ export default class AddBookmark extends PureComponent<AddBookmarkProps, AddBook
     this.setState({bookmarkLink: e.target.value});
   }
 
-  private setContent(e: ChangeEvent<HTMLInputElement>) {
+  private setContent(e: ChangeEvent<HTMLTextAreaElement>) {
     this.setState({bookmarkContent: e.target.value});
   }
 

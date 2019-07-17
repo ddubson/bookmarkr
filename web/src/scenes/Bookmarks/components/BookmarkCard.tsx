@@ -1,3 +1,4 @@
+import marked = require("marked");
 import * as React from "react";
 
 interface BookmarkCardProps {
@@ -8,6 +9,19 @@ interface BookmarkCardProps {
     removeBookmark: (id: string) => void;
 }
 
+marked.setOptions({
+  breaks: false,
+  gfm: true,
+  highlight: (code: string) => require("highlight.js").highlightAuto(code).value,
+  pedantic: false,
+  renderer: new marked.Renderer(),
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  tables: true,
+  xhtml: false,
+});
+
 export const BookmarkCard = ({id, title, content, link, removeBookmark}: BookmarkCardProps) => (
     <div className="card mt-2">
         <div className="card-body">
@@ -16,7 +30,7 @@ export const BookmarkCard = ({id, title, content, link, removeBookmark}: Bookmar
             </h4>
             <div className="card-text">
                 <div data-test="bookmark-content">
-                  {content}
+                  {marked(content)}
                 </div>
                 <div data-test="bookmark-link">
                   {link}

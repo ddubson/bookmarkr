@@ -7,7 +7,7 @@ describe("Add a bookmark", () => {
     describe("and I enter bookmark title, body, link into the form", () => {
       beforeEach(() => {
         cy.get("input[data-test=\"input-bookmark-title\"]").type("Hello");
-        cy.get("input[data-test=\"input-bookmark-content\"]").type("Hello there everyone. This is some content.");
+        cy.get("textarea[data-test=\"input-bookmark-content\"]").type("Hello there everyone. This is some content.");
         cy.get("input[data-test=\"input-bookmark-link\"]").type("World!");
       });
 
